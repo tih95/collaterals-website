@@ -5,10 +5,10 @@ const Stat = ({ number, label, icon }) => {
 		<Flex alignItems="center">
       {icon}
 			<Box marginLeft="1em">
-				<Text fontWeight="500" fontSize="1rem">
+				<Text fontWeight="500" fontSize="1.3rem">
 					{label}
 				</Text>
-				<Text fontWeight="700" fontSize="2.2rem">
+				<Text fontWeight="700" fontSize="2.5rem">
 					{number}
 				</Text>
 			</Box>

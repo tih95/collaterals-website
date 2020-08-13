@@ -49,6 +49,7 @@ const Header = () => {
 			color={scrolled ? 'black' : 'white'}
 			backgroundColor={scrolled ? '#F2F3EE' : ''}
 			as="header"
+			zIndex="3"
 		>
 			<Link href="/">
 				<a>
@@ -84,17 +85,22 @@ const Header = () => {
 				<DrawerOverlay />
 				<DrawerContent>
 					<DrawerCloseButton />
-					<DrawerHeader>Create your account</DrawerHeader>
-
+					<DrawerHeader>
+						<Text>Collaterals 2020</Text>
+					</DrawerHeader>
 					<DrawerBody>
+						<Flex flexDir="column">
+							<Link href="/speakers">
+								<Text fontSize="20px" marginBottom="1em">Speakers</Text>
+							</Link>
+							<Link href="/agenda">
+								<Text fontSize="20px" marginBottom="1em">Agenda</Text>
+							</Link>
+							<a href="http:/collateralperfusion.org">
+								<Text fontSize="20px" color="#38AAD0">Register</Text>
+							</a>
+						</Flex>
 					</DrawerBody>
-
-					<DrawerFooter>
-						<Button variant="outline" mr={3} onClick={() => setIsDrawerOpen(false)}>
-							Cancel
-						</Button>
-						<Button color="blue">Save</Button>
-					</DrawerFooter>
 				</DrawerContent>
 			</Drawer>
 		</Flex>
