@@ -1,10 +1,8 @@
 import { Flex, Text, Image } from '@chakra-ui/core';
-import { useMediaQuery } from 'react-responsive';
 
 const OrganizerCard = ({ name, location, imgSrc }) => {
-  const isMobileOrTablet = useMediaQuery({ query: '(max-width: 600px)' });
   return (
-    <Flex alignItems="center" flexDir="column" marginBottom={isMobileOrTablet ? '1em' : ''}>
+    <Flex alignItems="center" flexDir="column" marginBottom={['1em', '']}>
       <Image 
         rounded="full"
         src={imgSrc}

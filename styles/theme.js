@@ -8,5 +8,5 @@ export const customTheme = {
     heading: "Inter, serif",
     mono: "Menlo, monospace",
   },
-  breakpoints: ['500px', '750px', '1100px']
+  breakpoints: ['550px', '768px', '1096px']
 };
