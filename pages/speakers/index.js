@@ -15,20 +15,20 @@ hello
   )
 }
 
-export const getStaticProps = async (ctx) => {
-  try {
-    const resp = await client.getEntries({
-      content_type: 'speaker'
-    })
-    return {
-      props: {
-        speakers: resp.items
-      }
-    }
-  }
-  catch(e) {
-    console.log(e);
-  }
-}
+// export const getStaticProps = async (ctx) => {
+//   try {
+//     const resp = await client.getEntries({
+//       content_type: 'speaker'
+//     })
+//     return {
+//       props: {
+//         speakers: resp.items
+//       }
+//     }
+//   }
+//   catch(e) {
+//     console.log(e);
+//   }
+// }
 
 export default Speakers;
