@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import {
 	Flex,
@@ -15,6 +16,7 @@ import {
 import { RiMenuLine } from 'react-icons/ri';
 
 const Header = () => {
+	const router = useRouter();
 	const [ scrolled, setScroll ] = useState(false);
 	const [ isDrawerOpen, setIsDrawerOpen ] = useState(false);
 
@@ -40,12 +42,12 @@ const Header = () => {
 		<Flex
 			justifyContent="space-between"
 			alignItems="center"
-			padding="1.6em 2.4em"
+			padding={['1em', '1.4em 2em', '1.6em 2.4em']}
 			position="fixed"
 			width="100%"
 			transition="0.3s all"
-			color={scrolled ? 'black' : 'white'}
-			backgroundColor={scrolled ? '#F2F3EE' : ''}
+			color={scrolled || router.pathname !== '/' ? 'black' : 'white'}
+			backgroundColor={scrolled || router.pathname !== '/' ? '#F2F3EE' : ''}
 			as="header"
 			zIndex="3"
 		>
