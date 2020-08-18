@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { ThemeProvider, CSSReset } from '@chakra-ui/core';
 import Header from '../components/Header.component';
 import { customTheme } from '../styles/theme';
+import Footer from '../components/Footer.component';
 
 function MyApp({ Component, pageProps }) {
 	return (
@@ -18,6 +19,7 @@ function MyApp({ Component, pageProps }) {
 				<CSSReset />
 				<Header />
 				<Component {...pageProps} />
+				<Footer />
 			</ThemeProvider>
 		</React.Fragment>
 	);

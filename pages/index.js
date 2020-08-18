@@ -24,7 +24,7 @@ export default function Home() {
 				width="100%"
 			>
 				<Flex padding="2rem 3rem" flexDir="column" maxWidth="1100px" margin="0 auto">
-					<Fade triggerOnce cascade>
+					<Fade triggerOnce duration="1000">
 						<Heading color="white" as="h1" fontSize={[ '2.5rem', '2.5rem', '3rem', '3.5rem' ]}>
 							The 7th International Symposium On Collaterals To The Brain
 						</Heading>
@@ -76,7 +76,7 @@ export default function Home() {
 				</Flex>
 			</Fade>
 
-			<Box position="relative" color="white" backgroundColor="#1F3239" padding="6em 2em">
+			<Box position="relative" color="white" backgroundColor="#1F3239" padding="4em 2em">
 				<Flex
 					maxWidth="1100px"
 					margin="0 auto"
@@ -101,21 +101,23 @@ export default function Home() {
 							</Text>
 						</Fade>
 					</Flex>
-					<Image
-						maxW="350px"
-						maxH="350px"
-						minW="100px"
-						htmlHeight="auto"
-						htmlWidth={[ '100%', '100%', '45%' ]}
-						rounded="full"
-						marginTop={[ '4em', '' ]}
-						src="/assets/brain.jpg"
-						alt="brain angiogram"
-					/>
+					<Fade direction="up" triggerOnce>
+						<Image
+							maxW="350px"
+							maxH="350px"
+							minW="100px"
+							htmlHeight="auto"
+							htmlWidth={[ '100%', '100%', '45%' ]}
+							rounded="full"
+							marginTop={[ '4em', '' ]}
+							src="/assets/brain.jpg"
+							alt="brain angiogram"
+						/>
+					</Fade>
 				</Flex>
 			</Box>
 
-			<Box position="relative" color="black" backgroundColor="#f2f3ee" padding="6em 2em">
+			<Box position="relative" color="white" backgroundColor="#1F3239" padding="4em 2em">
 				<Flex
 					maxWidth="1100px"
 					margin="0 auto"
@@ -123,18 +125,26 @@ export default function Home() {
 					justifyContent="space-around"
 					alignItems="center"
 				>
-					<Image
-						maxWidth={['100%', '100%', '500px']}
-						htmlHeight="auto"
-						htmlWidth={[ '100%', '100%', '45%', '45%' ]}
-						marginBottom={[ '4em', '2em', '0', '0' ]}
-						src="/assets/collaterals-conf.jpg"
-						alt="collaterals conference"
-					/>
-					<Flex marginLeft={['0', '0', '3em', '3em']} lineHeight={2} width={[ '100%', '100%', '50%', '50%' ]} flexDir="column">
+					<Fade triggerOnce direction="up">
+						<Image
+							maxWidth={[ '100%', '100%', '450px' ]}
+							htmlHeight="auto"
+							htmlWidth={[ '100%', '100%', '45%', '45%' ]}
+							marginBottom={[ '4em', '2em', '0', '0' ]}
+							src="/assets/collaterals-conf.jpg"
+							alt="collaterals conference"
+						/>
+					</Fade>
+
+					<Flex
+						marginLeft={[ '0', '0', '3em', '3em' ]}
+						lineHeight={2}
+						width={[ '100%', '100%', '50%', '50%' ]}
+						flexDir="column"
+					>
 						<Fade direction="up" triggerOnce>
 							<Heading as="h2" fontWeight="600" marginBottom="1em">
-								Why attend Collalaterals?
+								Why attend Collaterals?
 							</Heading>
 							<Text marginBottom="2em" fontSize="18px">
 								Get a global perspective on today's research on collateral flow and hemodynamics in the
@@ -150,7 +160,7 @@ export default function Home() {
 				</Flex>
 			</Box>
 
-			<Box padding="4em 2em" backgroundColor="#f2f3ee">
+			<Box padding="4em 2em">
 				<Heading as="h2" textAlign="center" marginBottom="1em">
 					Conference Organizers
 				</Heading>

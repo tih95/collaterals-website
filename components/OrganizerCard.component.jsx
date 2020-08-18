@@ -8,8 +8,8 @@ const OrganizerCard = ({ name, location, imgSrc }) => {
         src={imgSrc}
         size="200px"
         alt={`${name} profile`}
-        boxShadow="12px 12px 43px #bfbfbf, 
-        -12px -12px 43px #ffffff"
+        boxShadow="14px 14px 28px #bdbdbd, 
+        -14px -14px 28px #ffffff"
         marginBottom="1em"
       />
       <Text fontSize="1.2rem" fontWeight="600">{name}</Text>

@@ -6,12 +6,11 @@ const SpeakerCard = ({ fields }) => {
 	const { name, country, profile } = fields;
 	return (
 		<Flex flexDir="column" justifyContent="center" alignItems="center">
-			<Box maxHeight="250px" overflow="hidden">
+			<Box borderRadius="10px" maxHeight="250px" overflow="hidden">
 				<Image
 					css={css`
 						transition: 1.5s all;
 
-            
 						&:hover {
 							transform: scale(1.1);
 						}

@@ -1,12 +1,17 @@
 import { Box, Text, Heading, Grid } from '@chakra-ui/core';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 
 import SpeakerCard from '../components/SpeakerCard.component';
 import { client } from '../contentful/contentful';
 
 const Speakers = ({ speakers }) => {
-	const [ speakersData, setSpeakersData ] = useState(speakers);
+  const [ speakersData, setSpeakersData ] = useState(speakers);
+  const [ sortValue, setSortValue ] = useState('');
+
+  useEffect(() => {
+    console.log('running effect');
+  }, [sortValue])
 
 	return (
 		<Box>
@@ -15,7 +20,7 @@ const Speakers = ({ speakers }) => {
 			</Head>
 
 			<Box backgroundColor="#1F3239">
-				<Box padding={[ '100px 2em 50px 2em' ]} maxW="1400px" margin="0 auto">
+				<Box padding={[ '100px 2em 50px 2em' ]} maxW="1200px" margin="0 auto">
 					<Heading color="white" fontSize="2.5rem" fontWeight="500">
 						Speakers
 					</Heading>
@@ -26,7 +31,7 @@ const Speakers = ({ speakers }) => {
 				margin="0 auto"
 				maxWidth="1200px"
 				padding="1em"
-				gridTemplateColumns="repeat(auto-fit, minmax(175px, 1fr))"
+				gridTemplateColumns="repeat(auto-fit, minmax(180px, 1fr))"
 				gridGap="1em"
 				alignContent="center"
 			>

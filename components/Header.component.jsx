@@ -11,7 +11,8 @@ import {
 	DrawerHeader,
 	DrawerOverlay,
 	DrawerContent,
-	DrawerCloseButton
+	DrawerCloseButton,
+	Button
 } from '@chakra-ui/core';
 import { RiMenuLine } from 'react-icons/ri';
 
@@ -89,11 +90,16 @@ const Header = () => {
 						<a>Agenda</a>
 					</Link>
 				</Text>
-				<Text fontWeight="500" marginLeft="2em">
+				<Button 
+				color="white"
+				backgroundColor="#38AAD0"
+				_hover={{ backgroundColor: '#5AB9D8' }}
+				_active={{ backgroundColor: '#2B93B6' }}
+				marginLeft="2em">
 					<a href="http://www.collateralperfusion.org" target="_blank">
 						Register
 					</a>
-				</Text>
+				</Button>
 			</Flex>
 
 			<Drawer isOpen={isDrawerOpen} placement="right" onClose={() => setIsDrawerOpen(false)}>
