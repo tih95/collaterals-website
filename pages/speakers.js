@@ -6,12 +6,15 @@ import SpeakerCard from '../components/SpeakerCard.component';
 import { client } from '../contentful/contentful';
 
 const Speakers = ({ speakers }) => {
-  const [ speakersData, setSpeakersData ] = useState(speakers);
-  const [ sortValue, setSortValue ] = useState('');
+	const [ speakersData, setSpeakersData ] = useState(speakers);
+	const [ sortValue, setSortValue ] = useState('');
 
-  useEffect(() => {
-    console.log('running effect');
-  }, [sortValue])
+	useEffect(
+		() => {
+			console.log('running effect');
+		},
+		[ sortValue ]
+	);
 
 	return (
 		<Box>
@@ -19,11 +22,19 @@ const Speakers = ({ speakers }) => {
 				<title>Speakers | Collaterals 2020</title>
 			</Head>
 
-			<Box backgroundColor="#1F3239">
-				<Box padding={[ '100px 2em 50px 2em' ]} maxW="1200px" margin="0 auto">
-					<Heading color="white" fontSize="2.5rem" fontWeight="500">
+			<Box
+        width="100%"
+        minHeight="350px"
+        backgroundRepeat="no-repeat"
+        backgroundSize="cover"
+        backgroundPosition="center center"
+				backgroundImage={`linear-gradient(rgba(31, 50, 57, 0.5), rgba(31, 50, 57, 0.5)), url('/assets/speakers-banner.jpg')`}
+			>
+				<Box padding={[ '150px 2em 50px 2em' ]} maxW="1200px" margin="0 auto">
+					<Heading color="white" fontSize={['1.75rem', '2rem', '3rem', '4rem']} fontWeight="500">
 						Speakers
 					</Heading>
+          <Text fontWeight="300" color="white" fontSize="1.2rem">Collaterals 2020</Text>
 				</Box>
 			</Box>
 

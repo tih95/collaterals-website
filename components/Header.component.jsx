@@ -47,8 +47,8 @@ const Header = () => {
 			position="fixed"
 			width="100%"
 			transition="0.3s all"
-			color={scrolled || router.pathname !== '/' ? 'black' : 'white'}
-			backgroundColor={scrolled || router.pathname !== '/' ? '#F2F3EE' : ''}
+			color={scrolled ? 'black' : 'white'}
+			backgroundColor={scrolled ? '#F2F3EE' : ''}
 			as="header"
 			zIndex="3"
 		>
