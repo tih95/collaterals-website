@@ -15,7 +15,7 @@ export default function Home() {
 			</Head>
 
 			<Box
-				background={`linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/heroBackground.jpg')`}
+				background={`linear-gradient(rgba(31, 50, 57, 0.5), rgba(31, 50, 57, 0.5)), url('/assets/heroBackground.jpg')`}
 				backgroundPosition="center"
 				backgroundSize="cover"
 				backgroundRepeat="no-repeat"

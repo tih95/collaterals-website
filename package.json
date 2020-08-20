@@ -13,6 +13,7 @@
     "@emotion/styled": "^10.0.27",
     "axios": "^0.19.2",
     "contentful": "^7.14.6",
+    "dayjs": "^1.8.33",
     "emotion-theming": "^10.0.27",
     "next": "9.5.1",
     "react": "16.13.1",

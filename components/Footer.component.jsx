@@ -25,7 +25,7 @@ const Footer = () => {
 					&copy; Neurovascular Imaging Research Core 2020
 				</Text>
 				<Flex width="60px" margin="0 auto" justifyContent="space-between">
-					<a href="https://twitter.com/dliebesk">
+					<a href="https://twitter.com/dliebesk" target="_blank">
 						<RiTwitterLine size="22px" />
 					</a>
 					<a href="mailto:info@collateralperfusion.com">
