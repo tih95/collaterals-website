@@ -7,7 +7,7 @@ const Footer = () => {
 			<Flex textAlign="center" padding="2em" flexDir="column" alignItems="center">
 				<Box width="75%" paddingBottom="2em" marginBottom="2em" borderBottom="1px solid white">
 					<Text fontSize="2rem" fontWeight="600" marginBottom="0.5em">
-						Collaterals Symposium
+						Register Today!
 					</Text>
 					<Button
 						color="white"

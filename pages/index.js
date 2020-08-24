@@ -6,6 +6,7 @@ import { Fade } from 'react-awesome-reveal';
 
 import Stat from '../components/Stat.component';
 import OrganizerCard from '../components/OrganizerCard.component';
+import RegistrationCard from '../components/RegistrationCard.component';
 
 export default function Home() {
 	return (
@@ -61,20 +62,20 @@ export default function Home() {
 				</Flex>
 			</Box>
 
-			<Fade direction="up" triggerOnce>
-				<Flex
-					flexDir={[ 'column', 'row' ]}
-					margin="0 auto"
-					padding={[ '2em', '4em 2em' ]}
-					maxWidth="1100px"
-					justifyContent="space-around"
-					alignItems="center"
-				>
+			<Flex
+				flexDir={[ 'column', 'row' ]}
+				margin="0 auto"
+				padding={[ '2em', '4em 2em' ]}
+				maxWidth="1100px"
+				justifyContent="space-around"
+				alignItems="center"
+			>
+				<Fade direction="up" triggerOnce cascade duration="500">
 					<Stat icon={<RiFlagLine size="36px" />} label="Countries" number="50+" />
 					<Stat icon={<RiUser3Line size="36px" />} label="Speakers" number="75+" />
 					<Stat icon={<RiMicLine size="36px" />} label="Sessions" number="25+" />
-				</Flex>
-			</Fade>
+				</Fade>
+			</Flex>
 
 			<Box position="relative" color="white" backgroundColor="#1F3239" padding="4em 2em">
 				<Flex
@@ -165,15 +166,38 @@ export default function Home() {
 					Conference Organizers
 				</Heading>
 				<Flex flexDir={[ 'column', 'row' ]} maxW="800px" margin="0 auto" justifyContent="space-around">
-					<OrganizerCard
-						name="David Liebeskind, M.D."
-						location="UCLA"
-						imgSrc="/assets/David-Liebeskind.jpg"
+					<Fade cascade triggerOnce duration="600" direction="up">
+						<OrganizerCard
+							name="David Liebeskind, M.D."
+							location="UCLA"
+							imgSrc="/assets/David-Liebeskind.jpg"
+						/>
+						<OrganizerCard
+							name="Ashfaq Shuaib, M.D."
+							location="University Of Alberta"
+							imgSrc="/assets/Ashfaq_Shuaib.jpg"
+						/>
+					</Fade>
+				</Flex>
+			</Box>
+
+			<Box padding="1em 2em" maxW="1100px" margin="0 auto">
+				<Heading marginBottom="1.3em">Registration Tiers</Heading>
+				<Flex >
+					<RegistrationCard
+						title="Online Participant"
+						description="Join online and view the whole conference virtually through Zoom. Get access to all sessions."
+						price="$100 (per day)"
 					/>
-					<OrganizerCard
-						name="Ashfaq Shuaib, M.D."
-						location="University Of Alberta"
-						imgSrc="/assets/Ashfaq_Shuaib.jpg"
+					<RegistrationCard
+						title="Trainee"
+						price="$300"
+						description="In person access for residents and fellows interested in stroke, hemodynamics, etc. Networking coffee breaks and meals included"
+					/>
+					<RegistrationCard
+						title="Professional"
+						price="$600"
+						description="In person access for faculty, professors, and all other attendees. Networking coffee breaks and meals included "
 					/>
 				</Flex>
 			</Box>

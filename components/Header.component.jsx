@@ -88,6 +88,11 @@ const Header = () => {
 						<a>Agenda</a>
 					</Link>
 				</Text>
+				<Text fontWeight="500" marginLeft="2em">
+					<Link href="/faq">
+						<a>FAQ</a>
+					</Link>
+				</Text>
 				<Button 
 				color="white"
 				backgroundColor="#38AAD0"
