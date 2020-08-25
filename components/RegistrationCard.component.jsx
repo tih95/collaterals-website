@@ -3,8 +3,7 @@ import { Flex, Box, Divider, Heading, Button, Text } from '@chakra-ui/core';
 const RegistrationCard = ({ title, price, description }) => {
 	return (
 		<Flex
-			boxShadow="20px 20px 40px #e6e6e6, 
-      -20px -20px 40px #ffffff"
+      border="1px solid #EDF2F7"
 			flexDir="column"
 			padding="1.5em"
 			borderRadius="10px"

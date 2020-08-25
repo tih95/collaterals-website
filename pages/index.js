@@ -181,9 +181,9 @@ export default function Home() {
 				</Flex>
 			</Box>
 
-			<Box padding="1em 2em" maxW="1100px" margin="0 auto">
+			<Box padding="1em 2em" maxW="1200px" margin="0 auto">
 				<Heading marginBottom="1.3em">Registration Tiers</Heading>
-				<Flex >
+				<Flex flexDir={[ 'column', 'row' ]}>
 					<RegistrationCard
 						title="Online Participant"
 						description="Join online and view the whole conference virtually through Zoom. Get access to all sessions."
@@ -199,6 +199,23 @@ export default function Home() {
 						price="$600"
 						description="In person access for faculty, professors, and all other attendees. Networking coffee breaks and meals included "
 					/>
+				</Flex>
+			</Box>
+
+			<Box marginTop="4em" backgroundColor="#1F3239">
+				<Flex color="white" maxW="1200px" margin="0 auto">
+					<Heading as="h2">
+						Collaterals' Sponsors
+					</Heading>
+					<Text fontSize="1.2rem" fontWeight="400">
+						Collaterals could not function withour their support
+					</Text>
+				</Flex>
+			</Box>
+
+			<Box backgroundColor="#1F3239">
+				<Flex color="white" paddingTop="4em" maxW="1200px" margin="0 auto">
+					<Heading as="h2">Collaterals Endorsements</Heading>
 				</Flex>
 			</Box>
 		</Box>
