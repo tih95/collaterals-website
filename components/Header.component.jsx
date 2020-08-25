@@ -41,7 +41,7 @@ const Header = () => {
 		<Flex
 			justifyContent="space-between"
 			alignItems="center"
-			padding={['1em', '1.4em 2em', '1.6em 2.4em']}
+			padding={[ '1em', '1.4em 2em', '1.6em 2.4em' ]}
 			position="fixed"
 			width="100%"
 			transition="0.3s all"
@@ -59,11 +59,7 @@ const Header = () => {
 			</Link>
 
 			<RiMenuLine
-				css={css`
-					@media screen and (min-width: 550px) {
-						display: none;
-					}`
-				}
+				css={css`@media screen and (min-width: 550px) {display: none;}`}
 				onClick={() => setIsDrawerOpen(true)}
 				size="24px"
 			/>
@@ -93,12 +89,13 @@ const Header = () => {
 						<a>FAQ</a>
 					</Link>
 				</Text>
-				<Button 
-				color="white"
-				backgroundColor="#38AAD0"
-				_hover={{ backgroundColor: '#5AB9D8' }}
-				_active={{ backgroundColor: '#2B93B6' }}
-				marginLeft="2em">
+				<Button
+					color="white"
+					backgroundColor="#38AAD0"
+					_hover={{ backgroundColor: '#5AB9D8' }}
+					_active={{ backgroundColor: '#2B93B6' }}
+					marginLeft="2em"
+				>
 					<a href="http://www.collateralperfusion.org" target="_blank">
 						Register
 					</a>
@@ -113,7 +110,7 @@ const Header = () => {
 						<Text>Collaterals 2020</Text>
 					</DrawerHeader>
 					<DrawerBody>
-						<Flex flexDir="column">
+						<Flex flexDir="column" alignItems="flex-start">
 							<Link href="/speakers">
 								<Text fontSize="18px" marginBottom="1em">
 									Speakers
@@ -124,10 +121,22 @@ const Header = () => {
 									Agenda
 								</Text>
 							</Link>
-							<a href="http:/collateralperfusion.org">
-								<Text fontSize="18px" color="#38AAD0">
-									Register
+							<Link href="/faq">
+								<Text fontSize="18px" marginBottom="1em">
+									FAQ
 								</Text>
+							</Link>
+							<a href="//collateralperfusion.org" target="_blank">
+								<Button
+								width="auto"
+									color="white"
+									fontSize="18px"
+									backgroundColor="#38AAD0"
+									_hover={{ backgroundColor: '#5AB9D8' }}
+									_active={{ backgroundColor: '#2B93B6' }}
+								>
+									Register
+								</Button>
 							</a>
 						</Flex>
 					</DrawerBody>
