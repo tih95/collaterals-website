@@ -1,12 +1,15 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { RiFlagLine, RiUser3Line, RiMicLine } from 'react-icons/ri';
-import { Box, Heading, Text, Flex, Button, ButtonGroup, Image } from '@chakra-ui/core';
+import { Box, Heading, Text, Flex, Button, ButtonGroup, Image, Grid } from '@chakra-ui/core';
 import { Fade } from 'react-awesome-reveal';
 
 import Stat from '../components/Stat.component';
 import OrganizerCard from '../components/OrganizerCard.component';
 import RegistrationCard from '../components/RegistrationCard.component';
+
+const endorsements = [ 'endorsements/snis-logo.png', 'endorsements/svin-logo.jpeg' ];
+const sponsors = [ 'sponsors/medtronic-logo.png', 'sponsors/stryker-logo.png' ];
 
 export default function Home() {
 	return (
@@ -166,7 +169,7 @@ export default function Home() {
 					Conference Organizers
 				</Heading>
 				<Flex flexDir={[ 'column', 'row' ]} maxW="800px" margin="0 auto" justifyContent="space-around">
-					<Fade cascade triggerOnce duration="600" direction="up">
+					<Fade cascade triggerOnce duration="400" direction="up">
 						<OrganizerCard
 							name="David Liebeskind, M.D."
 							location="UCLA"
@@ -202,20 +205,35 @@ export default function Home() {
 				</Flex>
 			</Box>
 
-			<Box marginTop="4em" backgroundColor="#1F3239">
-				<Flex color="white" maxW="1200px" margin="0 auto">
-					<Heading as="h2">
-						Collaterals' Sponsors
+			<Box marginTop="4em">
+				<Flex maxW="1000px" margin="0 auto" flexDir="column">
+					<Heading color="red" textAlign="center" as="h2" marginBottom="1.6em">
+						Collaterals Sponsors
 					</Heading>
-					<Text fontSize="1.2rem" fontWeight="400">
-						Collaterals could not function withour their support
-					</Text>
+
+					<Flex flexWrap="wrap" alignItems="center" justifyContent="center">
+						{sponsors.map((sponsor) => (
+							<Box padding="0.6em" width={['50%', '25%', '25%', '16.67%']} maxW="300px" flex="1 1 auto">
+								<Image key={sponsor} src={`/assets/${sponsor}`} />
+							</Box>
+							)	
+						)}
+					</Flex>
 				</Flex>
 			</Box>
 
-			<Box backgroundColor="#1F3239">
-				<Flex color="white" paddingTop="4em" maxW="1200px" margin="0 auto">
-					<Heading as="h2">Collaterals Endorsements</Heading>
+			<Box>
+				<Flex flexDir="column" paddingTop="4em" maxW="1000px" margin="0 auto">
+					<Heading color="#" marginBottom="1.4em" textAlign="center" as="h2">
+						Collaterals Endorsements
+					</Heading>
+					<Flex justifyContent="center" alignItems="center" flexWrap="wrap">
+						{endorsements.map((endorsement) => (
+							<Box padding="0.6em" width={['50%', '25%', '25%', '16.67%']} maxW="300px" flex="1 1 auto">
+								<Image key={endorsement} src={`/assets/${endorsement}`} />
+							</Box>
+						))}
+					</Flex>
 				</Flex>
 			</Box>
 		</Box>
