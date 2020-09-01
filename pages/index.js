@@ -1,14 +1,20 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { RiFlagLine, RiUser3Line, RiMicLine } from 'react-icons/ri';
+import { RiFlagLine, RiUser3Line, RiMicLine, RiMailLine } from 'react-icons/ri';
 import { Box, Heading, Text, Flex, Button, ButtonGroup, Image, Grid } from '@chakra-ui/core';
 import { Fade } from 'react-awesome-reveal';
 
 import Stat from '../components/Stat.component';
 import OrganizerCard from '../components/OrganizerCard.component';
 import RegistrationCard from '../components/RegistrationCard.component';
+import MailChimpSignup from '../components/MailChimpSignup.component';
 
-const endorsements = [ 'endorsements/snis-logo.png', 'endorsements/svin-logo.jpeg' ];
+const endorsements = [
+	'endorsements/snis-logo.png',
+	'endorsements/svin-logo.jpeg',
+	'endorsements/wso-logo.png',
+	'endorsements/kss-logo.gif'
+];
 const sponsors = [ 'sponsors/medtronic-logo.png', 'sponsors/stryker-logo.png' ];
 
 export default function Home() {
@@ -207,34 +213,51 @@ export default function Home() {
 
 			<Box marginTop="4em">
 				<Flex maxW="1000px" margin="0 auto" flexDir="column">
-					<Heading color="red" textAlign="center" as="h2" marginBottom="1.6em">
+					<Heading color="#666666" textAlign="center" as="h2" marginBottom="1em">
 						Collaterals Sponsors
 					</Heading>
 
 					<Flex flexWrap="wrap" alignItems="center" justifyContent="center">
 						{sponsors.map((sponsor) => (
-							<Box padding="0.6em" width={['50%', '25%', '25%', '16.67%']} maxW="300px" flex="1 1 auto">
+							<Box padding="0.6em" width={[ '50%', '25%', '25%', '16.67%' ]} maxW="300px" flex="1 1 auto">
 								<Image key={sponsor} src={`/assets/${sponsor}`} />
 							</Box>
-							)	
-						)}
+						))}
 					</Flex>
 				</Flex>
 			</Box>
 
 			<Box>
-				<Flex flexDir="column" paddingTop="4em" maxW="1000px" margin="0 auto">
-					<Heading color="#" marginBottom="1.4em" textAlign="center" as="h2">
+				<Flex flexDir="column" padding="4em 0" maxW="1000px" margin="0 auto">
+					<Heading color="#666666" marginBottom="1em" textAlign="center" as="h2">
 						Collaterals Endorsements
 					</Heading>
 					<Flex justifyContent="center" alignItems="center" flexWrap="wrap">
 						{endorsements.map((endorsement) => (
-							<Box padding="0.6em" width={['50%', '25%', '25%', '16.67%']} maxW="300px" flex="1 1 auto">
+							<Box padding="0.6em" width={[ '50%', '25%', '25%', '16.67%' ]} maxW="300px" flex="1 1 auto">
 								<Image key={endorsement} src={`/assets/${endorsement}`} />
 							</Box>
 						))}
 					</Flex>
 				</Flex>
+			</Box>
+
+			<Box background="linear-gradient(to left, #43c6ac, #191654)">
+				<Box maxW="1100px" margin="0 auto" padding="4em 2em">
+					<MailChimpSignup />
+
+					<Box marginTop="3em">
+						<Heading color="white" as="h1" fontWeight="500" fontSize="2.4rem" marginBottom="1em">
+							Have any questions? Get in touch with us.
+						</Heading>
+						<Flex color="white" alignItems="center">
+							<Box as={RiMailLine} fontSize="1.6rem" />
+							<Text textDecor="underline" marginLeft="1em" fontSize="1.3rem">
+								<a href="mailto:info@collateralperfusion.com">info@collateralperfusion.org</a>
+							</Text>
+						</Flex>
+					</Box>
+				</Box>
 			</Box>
 		</Box>
 	);
