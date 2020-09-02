@@ -5,6 +5,7 @@ import queryString from 'query-string';
 import { Fade } from 'react-awesome-reveal';
 
 const MailChimpSignup = ({ uri, successMessage, buttonText }) => {
+	
 	const [ email, setEmail ] = useState('');
 	const [ message, setMessage ] = useState('');
 
