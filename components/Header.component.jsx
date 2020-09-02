@@ -74,32 +74,41 @@ const Header = () => {
 				`}
 				alignItems="center"
 			>
-				<Text fontWeight="500">
-					<Link href="/speakers">
-						<a>Speakers</a>
-					</Link>
-				</Text>
-				<Text fontWeight="500" marginLeft="2em">
-					<Link href="/agenda">
-						<a>Agenda</a>
-					</Link>
-				</Text>
-				<Text fontWeight="500" marginLeft="2em">
-					<Link href="/faq">
-						<a>FAQ</a>
-					</Link>
-				</Text>
-				<Button
-					color="white"
-					backgroundColor="#38AAD0"
-					_hover={{ backgroundColor: '#5AB9D8' }}
-					_active={{ backgroundColor: '#2B93B6' }}
-					marginLeft="2em"
-				>
-					<a href="http://www.collateralperfusion.org" target="_blank">
-						Register
+				<Link href="/speakers">
+					<a>
+						<Text fontWeight="500">Speakers</Text>
 					</a>
-				</Button>
+				</Link>
+
+				<Link href="/agenda">
+					<a>
+						<Text fontWeight="500" marginLeft="2em">
+							Agenda
+						</Text>
+					</a>
+				</Link>
+
+				<Link href="/faq">
+					<a>
+						<Text fontWeight="500" marginLeft="2em">
+							FAQ
+						</Text>
+					</a>
+				</Link>
+
+				<Link href="/register">
+					<a>
+						<Button
+							color="white"
+							backgroundColor="#38AAD0"
+							_hover={{ backgroundColor: '#5AB9D8' }}
+							_active={{ backgroundColor: '#2B93B6' }}
+							marginLeft="2em"
+						>
+							Register
+						</Button>
+					</a>
+				</Link>
 			</Flex>
 
 			<Drawer isOpen={isDrawerOpen} placement="right" onClose={() => setIsDrawerOpen(false)}>
@@ -107,37 +116,49 @@ const Header = () => {
 				<DrawerContent>
 					<DrawerCloseButton />
 					<DrawerHeader>
-						<Text>Collaterals 2020</Text>
+						<Link href="/">
+							<a>
+								<Text>Collaterals 2020</Text>
+							</a>
+						</Link>
 					</DrawerHeader>
 					<DrawerBody>
 						<Flex flexDir="column" alignItems="flex-start">
 							<Link href="/speakers">
-								<Text fontSize="18px" marginBottom="1em">
-									Speakers
-								</Text>
+								<a>
+									<Text fontSize="18px" marginBottom="1em">
+										Speakers
+									</Text>
+								</a>
 							</Link>
 							<Link href="/agenda">
-								<Text fontSize="18px" marginBottom="1em">
-									Agenda
-								</Text>
+								<a>
+									<Text fontSize="18px" marginBottom="1em">
+										Agenda
+									</Text>
+								</a>
 							</Link>
 							<Link href="/faq">
-								<Text fontSize="18px" marginBottom="1em">
-									FAQ
-								</Text>
+								<a>
+									<Text fontSize="18px" marginBottom="1em">
+										FAQ
+									</Text>
+								</a>
 							</Link>
-							<a href="//collateralperfusion.org" target="_blank">
-								<Button
-								width="auto"
-									color="white"
-									fontSize="18px"
-									backgroundColor="#38AAD0"
-									_hover={{ backgroundColor: '#5AB9D8' }}
-									_active={{ backgroundColor: '#2B93B6' }}
-								>
-									Register
-								</Button>
-							</a>
+							<Link href="/register">
+								<a>
+									<Button
+										width="auto"
+										color="white"
+										fontSize="18px"
+										backgroundColor="#38AAD0"
+										_hover={{ backgroundColor: '#5AB9D8' }}
+										_active={{ backgroundColor: '#2B93B6' }}
+									>
+										Register
+									</Button>
+								</a>
+							</Link>
 						</Flex>
 					</DrawerBody>
 				</DrawerContent>

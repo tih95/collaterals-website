@@ -6,16 +6,16 @@ import { Fade } from 'react-awesome-reveal';
 
 import Stat from '../components/Stat.component';
 import OrganizerCard from '../components/OrganizerCard.component';
-import RegistrationCard from '../components/RegistrationCard.component';
 import MailChimpSignup from '../components/MailChimpSignup.component';
 
 const endorsements = [
 	'endorsements/snis-logo.png',
-	'endorsements/svin-logo.jpeg',
+	'endorsements/svin-logo.png',
 	'endorsements/wso-logo.png',
 	'endorsements/kss-logo.gif'
 ];
 const sponsors = [ 'sponsors/medtronic-logo.png', 'sponsors/stryker-logo.png' ];
+const uri = process.env.MAILCHIMP_SUB_URI;
 
 export default function Home() {
 	return (
@@ -39,32 +39,36 @@ export default function Home() {
 							The 7th International Symposium On Collaterals To The Brain
 						</Heading>
 						<Text color="white" fontSize="1.6em" fontWeight="500" marginTop="1em">
-							Precision Stroke Medicine – From AI to Designer Devices for Better Outcomes
+							Virtually Normal: Collaterals for Stroke in a Global Pandemic
 						</Text>
 						<Text color="white" marginTop="1em" fontSize="1.4em" fontWeight="300">
 							November 3rd - 5th, 2020 | Los Angeles, CA, USA
 						</Text>
 						<ButtonGroup marginTop="2em">
-							<a target="_blank" href="http://collateralperfusion.org">
-								<Button
-									color="white"
-									backgroundColor="#38AAD0"
-									_hover={{ backgroundColor: '#5AB9D8' }}
-									_active={{ backgroundColor: '#2B93B6' }}
-								>
-									Register
-								</Button>
-							</a>
+							<Link href="/register">
+								<a>
+									<Button
+										color="white"
+										backgroundColor="#38AAD0"
+										_hover={{ backgroundColor: '#5AB9D8' }}
+										_active={{ backgroundColor: '#2B93B6' }}
+									>
+										Register
+									</Button>
+								</a>
+							</Link>
 							<Link href="/agenda">
-								<Button
-									marginLeft="0.8em"
-									color="white"
-									backgroundColor="#829FA8"
-									_hover={{ backgroundColor: '#9FB5BC' }}
-									_active={{ backgroundColor: '#6F909B' }}
-								>
-									Agenda
-								</Button>
+								<a>
+									<Button
+										marginLeft="0.8em"
+										color="white"
+										backgroundColor="#829FA8"
+										_hover={{ backgroundColor: '#9FB5BC' }}
+										_active={{ backgroundColor: '#6F909B' }}
+									>
+										Agenda
+									</Button>
+								</a>
 							</Link>
 						</ButtonGroup>
 					</Fade>
@@ -72,18 +76,17 @@ export default function Home() {
 			</Box>
 
 			<Flex
-				flexDir={[ 'column', 'row' ]}
+				flexWrap="wrap"
 				margin="0 auto"
-				padding={[ '2em', '4em 2em' ]}
 				maxWidth="1100px"
-				justifyContent="space-around"
+				justifyContent="space-between"
 				alignItems="center"
+				padding={["2em 1em", "3em 1em"]}
 			>
-				<Fade direction="up" triggerOnce cascade duration="500">
-					<Stat icon={<RiFlagLine size="36px" />} label="Countries" number="50+" />
-					<Stat icon={<RiUser3Line size="36px" />} label="Speakers" number="75+" />
-					<Stat icon={<RiMicLine size="36px" />} label="Sessions" number="25+" />
-				</Fade>
+					<Stat label="Countries" number="50+" />
+					<Stat label="Speakers" number="75+" />
+					<Stat label="Sessions" number="25+" />
+					<Stat label="Days" number="2" />
 			</Flex>
 
 			<Box position="relative" color="white" backgroundColor="#1F3239" padding="4em 2em">
@@ -94,7 +97,7 @@ export default function Home() {
 					justifyContent="space-around"
 					alignItems="center"
 				>
-					<Flex lineHeight={2} width={[ '100%', '100%', '50%' ]} flexDir="column">
+					<Flex marginRight={[ '0', '0', '3em', '3em' ]} lineHeight={2} width={[ '100%', '100%', '50%' ]} flexDir="column">
 						<Fade direction="up" triggerOnce>
 							<Heading as="h2" fontWeight="600" marginBottom="1em">
 								What is Collaterals?
@@ -105,23 +108,20 @@ export default function Home() {
 								circulation and hemodynamics in acute ischemic stroke around the globe
 							</Text>
 							<Text fontSize="18px">
-								The entire Collaterals Conference will be held in person in Los Angeles, CA as well as
-								online hosted by Zoom. You can participate online from anywhere in the world (by day) or
-								in person. Register today!
+								In the past, we have held Collaterals both in person and online virtually. Due to
+								COVID-19, Collaterals will be held <strong>100% online</strong> (Zoom). You can
+								participate online from anywhere in the world. Register today!
 							</Text>
 						</Fade>
 					</Flex>
 					<Fade direction="up" triggerOnce>
 						<Image
-							maxW="350px"
-							maxH="350px"
-							minW="100px"
+							maxWidth={[ '100%', '100%', '400px' ]}
 							htmlHeight="auto"
-							htmlWidth={[ '100%', '100%', '45%' ]}
-							rounded="full"
-							marginTop={[ '4em', '' ]}
-							src="/assets/brain.jpg"
-							alt="brain angiogram"
+							htmlWidth={[ '100%', '100%', '45%', '45%' ]}
+							marginTop={[ '4em', '2em', '0', '0' ]}
+							src="/assets/collaterals-conf2.jpg"
+							alt="collaterals conference 2"
 						/>
 					</Fade>
 				</Flex>
@@ -163,7 +163,7 @@ export default function Home() {
 							</Text>
 							<Text fontSize="18px">
 								There will be many topics that will be discussed from designer devices, new therapies,
-								and AI to ultimately achieve better outcomes.
+								and how the current circumstances today has affected stroke care around the world.
 							</Text>
 						</Fade>
 					</Flex>
@@ -171,7 +171,7 @@ export default function Home() {
 			</Box>
 
 			<Box padding="4em 2em">
-				<Heading as="h2" textAlign="center" marginBottom="1em">
+				<Heading color="#555" as="h2" textAlign="center" marginBottom="1em">
 					Conference Organizers
 				</Heading>
 				<Flex flexDir={[ 'column', 'row' ]} maxW="800px" margin="0 auto" justifyContent="space-around">
@@ -190,36 +190,21 @@ export default function Home() {
 				</Flex>
 			</Box>
 
-			<Box padding="1em 2em" maxW="1200px" margin="0 auto">
-				<Heading marginBottom="1.3em">Registration Tiers</Heading>
-				<Flex flexDir={[ 'column', 'row' ]}>
-					<RegistrationCard
-						title="Online Participant"
-						description="Join online and view the whole conference virtually through Zoom. Get access to all sessions."
-						price="$100 (per day)"
-					/>
-					<RegistrationCard
-						title="Trainee"
-						price="$300"
-						description="In person access for residents and fellows interested in stroke, hemodynamics, etc. Networking coffee breaks and meals included"
-					/>
-					<RegistrationCard
-						title="Professional"
-						price="$600"
-						description="In person access for faculty, professors, and all other attendees. Networking coffee breaks and meals included "
-					/>
-				</Flex>
-			</Box>
-
 			<Box marginTop="4em">
 				<Flex maxW="1000px" margin="0 auto" flexDir="column">
-					<Heading color="#666666" textAlign="center" as="h2" marginBottom="1em">
+					<Heading color="#555" textAlign="center" as="h2" marginBottom="1em">
 						Collaterals Sponsors
 					</Heading>
 
-					<Flex flexWrap="wrap" alignItems="center" justifyContent="center">
+					<Flex flexWrap="wrap" alignItems="center" justifyContent="center" padding="1em">
 						{sponsors.map((sponsor) => (
-							<Box padding="0.6em" width={[ '50%', '25%', '25%', '16.67%' ]} maxW="300px" flex="1 1 auto">
+							<Box
+								key={sponsor}
+								padding="0.6em"
+								width={[ '50%', '25%', '25%', '16.67%' ]}
+								maxW="300px"
+								flex="1 1 auto"
+							>
 								<Image key={sponsor} src={`/assets/${sponsor}`} />
 							</Box>
 						))}
@@ -229,23 +214,37 @@ export default function Home() {
 
 			<Box>
 				<Flex flexDir="column" padding="4em 0" maxW="1000px" margin="0 auto">
-					<Heading color="#666666" marginBottom="1em" textAlign="center" as="h2">
+					<Heading color="#555" marginBottom="1em" textAlign="center" as="h2">
 						Collaterals Endorsements
 					</Heading>
-					<Flex justifyContent="center" alignItems="center" flexWrap="wrap">
+					<Flex justifyContent="center" alignItems="center" flexWrap="wrap" padding="1em">
 						{endorsements.map((endorsement) => (
-							<Box padding="0.6em" width={[ '50%', '25%', '25%', '16.67%' ]} maxW="300px" flex="1 1 auto">
-								<Image key={endorsement} src={`/assets/${endorsement}`} />
+							<Box
+								key={endorsement}
+								padding="0.6em"
+								width={[ '50%', '25%', '25%', '16.67%' ]}
+								maxW="300px"
+								flex="1 1 auto"
+							>
+								<Image src={`/assets/${endorsement}`} />
 							</Box>
 						))}
 					</Flex>
 				</Flex>
 			</Box>
 
-			<Box background="linear-gradient(to left, #43c6ac, #191654)">
+			<Box background="linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(31,50,57,1) 50%, rgba(21,140,164,1) 100%)">
 				<Box maxW="1100px" margin="0 auto" padding="4em 2em">
-					<MailChimpSignup />
-
+					<Heading color="white" as="h1" fontWeight="500" fontSize="2.4rem" marginBottom="1em">
+						Get the latest on Collaterals.
+					</Heading>
+					<Box width="100%" margin="1em auto 3em auto">
+						<MailChimpSignup
+							buttonText="Sign Up"
+							successMessage="Success! Thanks for subscribing!"
+							uri={uri}
+						/>
+					</Box>
 					<Box marginTop="3em">
 						<Heading color="white" as="h1" fontWeight="500" fontSize="2.4rem" marginBottom="1em">
 							Have any questions? Get in touch with us.

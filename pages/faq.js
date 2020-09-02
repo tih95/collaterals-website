@@ -20,7 +20,7 @@ const Faq = ({ faqs }) => {
 				background="linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(31,50,57,1) 50%, rgba(21,140,164,1) 100%)"
 			>
 				<Box padding={[ '150px 2em 50px 2em' ]} maxW="1200px" margin="0 auto">
-					<Fade triggerOnce direction="up">
+					<Fade triggerOnce direction="down">
 						<Heading color="white" fontSize={[ '2.25rem', '2.75rem', '3rem', '4rem' ]} fontWeight="500">
 							Frequently Asked Questions
 						</Heading>
@@ -40,6 +40,11 @@ const Faq = ({ faqs }) => {
 
 export const getStaticProps = () => {
   const faqs = [
+    {
+      id: 19,
+      question: 'Will there be in person attendance?',
+      answer: 'Due to COVID-19, the entire conference will be held virtually online for both days.'
+    },
     {
       id: 1,
       question: 'How do I get to the venue from LAX?',

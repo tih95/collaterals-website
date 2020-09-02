@@ -9,14 +9,25 @@ import { client } from '../contentful/contentful';
 
 const Speakers = ({ speakers }) => {
   const [ speakersData, setSpeakersData ] = useState(speakers);
-  const [ filterValue, setFilterValue ] = useState('');
+  const [ filterValue, setFilterValue ] = useState('all');
 
 	useEffect(
 		() => {
-			console.log('running effect');
+			if (filterValue === 'all') {
+				setSpeakersData(speakers);
+			}
+			else {
+				const filteredData = speakers.filter(speaker => {
+					return dayjs(speaker.fields.speakingTime).isSame(filterValue, 'date')
+				})
+	
+				setSpeakersData(filteredData);
+			}
 		},
 		[ filterValue ]
 	);
+
+	// dayjs(event.fields.startTime).isSame('2020-11-04', 'date')
 
 	return (
 		<Box>
@@ -33,7 +44,7 @@ const Speakers = ({ speakers }) => {
 				backgroundImage={`linear-gradient(rgba(31, 50, 57, 0.5), rgba(31, 50, 57, 0.5)), url('/assets/speakers-banner.jpg')`}
 			>
 				<Box padding={[ '150px 2em 50px 2em' ]} maxW="1200px" margin="0 auto">
-					<Fade triggerOnce direction="up">
+					<Fade triggerOnce direction="down">
 						<Heading color="white" fontSize={[ '2.25rem', '2.75rem', '3rem', '4rem' ]} fontWeight="500">
 							Speakers
 						</Heading>
@@ -48,8 +59,8 @@ const Speakers = ({ speakers }) => {
         <Text marginRight="1em">Filter by</Text>
         <Select width="auto" selected onChange={e => setFilterValue(e.target.value)}>
           <option value="all">All</option>
-          <option value="Nov 4th">Nov 4th</option>
-          <option value="Nov 4th">Nov 5th</option>
+          <option value="2020-11-04">Nov 4th</option>
+          <option value="2020-11-05">Nov 5th</option>
         </Select>
       </Flex>
 

@@ -1,5 +1,6 @@
 module.exports = {
   env: {
-    MAILCHIMP_URI: process.env.MAILCHIMP_URI,
+    MAILCHIMP_SUB_URI: process.env.MAILCHIMP_SUB_URI,
+    MAILCHIMP_REGISTER_URI: process.env.MAILCHIMP_REGISTER_URI
   },
 };

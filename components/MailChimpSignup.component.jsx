@@ -1,11 +1,10 @@
-import { Box, Input, FormLabel, Heading, Button, Text } from '@chakra-ui/core';
+import { Box, Input, Flex, Button, Text } from '@chakra-ui/core';
 import { useState } from 'react';
 import jsonp from 'jsonp';
 import queryString from 'query-string';
+import { Fade } from 'react-awesome-reveal';
 
-const mailchimp_uri = process.env.MAILCHIMP_URI;
-
-const MailChimpSignup = () => {
+const MailChimpSignup = ({ uri, successMessage, buttonText }) => {
 	const [ email, setEmail ] = useState('');
 	const [ message, setMessage ] = useState('');
 
@@ -13,49 +12,53 @@ const MailChimpSignup = () => {
 		e.preventDefault();
 		const formData = { EMAIL: email };
 
-		jsonp(
-			`${mailchimp_uri}&${queryString.stringify(
-				formData
-			)}`,
-			{ param: 'c' },
-			(err, data) => {
-				if (err) {
-					setMessage('Could not sign up. Please try again later');
-				}
-				else {
-					setMessage('Success! Thanks for subscribing.');
-				}
+		jsonp(`${uri}&${queryString.stringify(formData)}`, { param: 'c' }, (err, data) => {
+			console.log('submitting');
+			if (err) {
+				console.log('error');
+				setMessage('Please try again later');
 			}
-		);
+			else {
+				console.log('success');
+				setMessage(successMessage);
+			}
+		});
 	};
 
 	return (
 		<Box>
-			<Heading color="white" as="h1" fontWeight="500" fontSize="2.4rem" marginBottom="1em">
-				Sign up to get alerts and updates on Collaterals!
-			</Heading>
 			<form onSubmit={handleSubmit}>
-				<FormLabel color="white" fontSize="1.2rem" htmlFor="email">
-					Email
-				</FormLabel>
-				<Input
-					marginBottom="1.6em"
-					placeholder="janedoe@example.com"
-					onChange={(e) => setEmail(e.target.value)}
-					type="email"
-					name="email"
-					id="email"
-					value={email}
-				/>
-				{message ? (
-					<Text color="white" fontSize="1.2rem" fontWeight="500">
-						{message}
-					</Text>
-				) : (
-					<Button variantColor="cyan" type="submit">
-						Subscribe
-					</Button>
-				)}
+				<Flex flexDir={[ 'column', 'row' ]} alignItems="center" justifyContent="center" margin="3em auto">
+					{!message ? (
+						<React.Fragment>
+							<Input
+								type="email"
+								name="email"
+								id="email"
+								value={email}
+								onChange={(e) => setEmail(e.target.value)}
+								placeholder="johndoe@example.com"
+							/>
+							<Button
+								color="white"
+								backgroundColor="#829FA8"
+								_hover={{ backgroundColor: '#9FB5BC' }}
+								_active={{ backgroundColor: '#6F909B' }}
+								type="submit"
+								width={[ '100%', 'auto' ]}
+								margin={[ '1em 0 0 0', '0 0 0 1em' ]}
+							>
+								{buttonText}
+							</Button>
+						</React.Fragment>
+					) : (
+						<Fade triggerOnce direction="left">
+							<Text color="white" fontSize="1.2rem" fontWeight="500">
+								{message}
+							</Text>
+						</Fade>
+					)}
+				</Flex>
 				<div
 					style={{ position: 'absolute', left: '-5000px' }}
 					aria-hidden="true"
@@ -69,7 +72,9 @@ const MailChimpSignup = () => {
 						value=""
 						placeholder="youremail@gmail.com"
 						id="b_email"
-					/>	</div>
+						readOnly
+					/>
+				</div>
 			</form>
 		</Box>
 	);
