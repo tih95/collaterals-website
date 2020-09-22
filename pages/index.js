@@ -12,7 +12,11 @@ const endorsements = [
 	'endorsements/snis-logo.png',
 	'endorsements/svin-logo.png',
 	'endorsements/wso-logo.png',
-	'endorsements/kss-logo.gif'
+	'endorsements/kss-logo.png',
+	'endorsements/wfitn-logo.png',
+	'endorsements/eso-logo.png',
+	'endorsements/mena-sino-logo.jpg',
+	'endorsements/iscbfm-logo.png'
 ];
 const sponsors = [ 'sponsors/medtronic-logo.png', 'sponsors/stryker-logo.png' ];
 const uri = process.env.MAILCHIMP_SUB_URI;
